@@ -33,6 +33,13 @@ namespace BankingSystem.Services
 
             try
             {
+                // Real API call if endpoint was working
+                // var response = await _httpClient.PostAsJsonAsync(endpoint, new { 
+                //     userId = userId, 
+                //     SecretId = secretId 
+                // });
+                // var result = await response.Content.ReadFromJsonAsync<BaseResponse<string>>();
+
                 if (SimulateApiCall(95))
                 {
                     var token = Guid.NewGuid().ToString();
@@ -95,6 +102,13 @@ namespace BankingSystem.Services
 
             try
             {
+                // Real API call if endpoint was working
+                // var response = await _httpClient.PostAsJsonAsync(endpoint, new { 
+                //     userId = userId, 
+                //     SecretId = secretId 
+                // });
+                // var result = await response.Content.ReadFromJsonAsync<BaseResponse<string>>();
+
                 if (SimulateApiCall(90))
                 {
                     _logger.LogInformation("{Type} completed successfully", transactionType);
