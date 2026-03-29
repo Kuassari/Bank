@@ -9,7 +9,7 @@ export function NotFoundPage() {
     <Container sx={{ mt: 8 }}>
       <Paper elevation={3} sx={{ p: 6, textAlign: 'center' }}>
         <Box>
-          <Typography variant="h1" gutterBottom color="primary">
+          <Typography variant="h1" gutterBottom>
             404
           </Typography>
           <Typography variant="h4" gutterBottom>
@@ -22,7 +22,7 @@ export function NotFoundPage() {
             variant="contained"
             startIcon={<Home />}
             onClick={() => navigate('/')}
-            sx={{ mt: 2 }}
+            sx={{ mt: 2 ,backgroundColor: '#000000', }}
           >
             Go Home
           </Button>

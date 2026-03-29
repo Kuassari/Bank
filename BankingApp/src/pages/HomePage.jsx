@@ -19,7 +19,7 @@ export function HomePage() {
           size="large"
           startIcon={<Receipt />}
           onClick={() => navigate('/transactions')}
-          sx={{ mt: 4 }}
+          sx={{ mt: 4, backgroundColor: '#000000', }}
         >
           View Transactions
         </Button>

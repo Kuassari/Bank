@@ -114,10 +114,10 @@ export function TransactionsPage() {
   };
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'fullNameHebrew', headerName: 'Full Name (Hebrew)', width: 160 },
-    { field: 'fullNameEnglish', headerName: 'Full Name (English)', width: 160 },
-    { field: 'idNumber', headerName: 'ID Number', width: 120 },
+    { field: 'id', headerName: 'ID', maxWidth: 60, },
+    { field: 'fullNameHebrew', headerName: 'Full Name (Hebrew)', minWidth: 170,},
+    { field: 'fullNameEnglish', headerName: 'Full Name (English)' ,minWidth: 170,},
+    { field: 'idNumber', headerName: 'ID Number', minWidth: 130 },
     {
       field: 'amount',
       headerName: 'Amount',
@@ -204,7 +204,7 @@ export function TransactionsPage() {
     {
       field: 'actions',
       headerName: 'Actions',
-      width: 100,
+      flex: 0.6,
       sortable: false,
       filterable: false,
       renderCell: (params) => {
@@ -236,7 +236,7 @@ export function TransactionsPage() {
   ];
 
   return (
-    <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+    <Container maxWidth={false} sx={{ mt: 4, mb: 4 }}>
       <Paper elevation={3} sx={{ p: 3 }}>
         <Box
           display="flex"

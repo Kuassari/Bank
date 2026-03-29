@@ -26,6 +26,7 @@ const initialFormState = {
     accountNumber: '',
   },
   submitting: false,
+  attemptedSubmit: false,
 };
 
 const formReducer = (state, action) => {
@@ -39,6 +40,9 @@ const formReducer = (state, action) => {
     case 'SET_SUBMITTING':
       return { ...state, submitting: action.value };
 
+    case 'ATTEMPTED_SUBMIT':
+      return { ...state, attemptedSubmit: true };
+
     case 'RESET_FORM':
       return { ...initialFormState };
 
@@ -46,6 +50,7 @@ const formReducer = (state, action) => {
       return {
         ...state,
         data: action.data,
+        attemptedSubmit: false,
       };
 
     default:
@@ -89,6 +94,8 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
   };
 
   const handleSubmit = async () => {
+    dispatch({ type: 'ATTEMPTED_SUBMIT' });
+
     if (hasErrors) {
       return;
     }
@@ -117,6 +124,19 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
     }
   };
 
+  const shouldShowError = (fieldName, fieldValue) => {
+    if (!formState.attemptedSubmit) {
+      const hasValue = fieldValue !== '' && fieldValue !== null && fieldValue !== undefined;
+      if (!hasValue) return false;
+    }
+    return !!errors[fieldName];
+  };
+
+  const getHelperText = (fieldName, fieldValue) => {
+    if (!shouldShowError(fieldName, fieldValue)) return '';
+    return errors[fieldName] || '';
+  };
+
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
       <DialogTitle>
@@ -138,8 +158,8 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             label="Full Name (Hebrew)"
             value={formState.data.fullNameHebrew}
             onChange={(e) => handleFieldChange('fullNameHebrew', e.target.value)}
-            error={!!errors.fullNameHebrew}
-            helperText={errors.fullNameHebrew}
+            error={shouldShowError('fullNameHebrew', formState.data.fullNameHebrew)}
+            helperText={getHelperText('fullNameHebrew', formState.data.fullNameHebrew)}
             disabled={isEditMode || formState.submitting}
             inputProps={{ maxLength: 20 }}
           />
@@ -150,8 +170,8 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             label="Full Name (English)"
             value={formState.data.fullNameEnglish}
             onChange={(e) => handleFieldChange('fullNameEnglish', e.target.value)}
-            error={!!errors.fullNameEnglish}
-            helperText={errors.fullNameEnglish}
+            error={shouldShowError('fullNameEnglish', formState.data.fullNameEnglish)}
+            helperText={getHelperText('fullNameEnglish', formState.data.fullNameEnglish)}
             disabled={isEditMode || formState.submitting}
             inputProps={{ maxLength: 15 }}
           />
@@ -165,8 +185,8 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
               textField: {
                 fullWidth: true,
                 required: true,
-                error: !!errors.birthDate,
-                helperText: errors.birthDate,
+                error: shouldShowError('birthDate', formState.data.birthDate),
+                helperText: getHelperText('birthDate', formState.data.birthDate),
               },
             }}
           />
@@ -177,8 +197,8 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             label="ID Number"
             value={formState.data.idNumber}
             onChange={(e) => handleFieldChange('idNumber', e.target.value)}
-            error={!!errors.idNumber}
-            helperText={errors.idNumber}
+            error={shouldShowError('idNumber', formState.data.idNumber)}
+            helperText={getHelperText('idNumber', formState.data.idNumber)}
             disabled={isEditMode || formState.submitting}
             inputProps={{ maxLength: 9 }}
           />
@@ -203,8 +223,8 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             type="number"
             value={formState.data.amount}
             onChange={(e) => handleFieldChange('amount', e.target.value)}
-            error={!!errors.amount}
-            helperText={errors.amount}
+            error={shouldShowError('amount', formState.data.amount)}
+            helperText={getHelperText('amount', formState.data.amount)}
             disabled={formState.submitting}
             inputProps={{ min: 0.01, max: 9999999999, step: 0.01 }}
           />
@@ -215,23 +235,24 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             label="Account Number"
             value={formState.data.accountNumber}
             onChange={(e) => handleFieldChange('accountNumber', e.target.value)}
-            error={!!errors.accountNumber}
-            helperText={errors.accountNumber}
+            error={shouldShowError('accountNumber', formState.data.accountNumber)}
+            helperText={getHelperText('accountNumber', formState.data.accountNumber)}
             disabled={formState.submitting}
             slotProps={{
-              htmlInput: { maxLength: 20 }
+              htmlInput: { maxLength: 10 }
             }}
           />
         </Stack>
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleClose} disabled={formState.submitting}>
+        <Button onClick={handleClose} disabled={formState.submitting} sx={{ color: '#424242' }}>
           Cancel
         </Button>
         <Button
           onClick={handleSubmit}
           variant="contained"
+          sx={{ backgroundColor: '#424242', color: '#fff' }}
           disabled={formState.submitting || hasErrors}
         >
           {formState.submitting ? 'Saving...' : isEditMode ? 'Update' : 'Create'}
