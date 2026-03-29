@@ -115,13 +115,13 @@ export function TransactionsPage() {
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'fullNameHebrew', headerName: 'Full Name (Hebrew)', width: 150 },
-    { field: 'fullNameEnglish', headerName: 'Full Name (English)', width: 150 },
+    { field: 'fullNameHebrew', headerName: 'Full Name (Hebrew)', width: 160 },
+    { field: 'fullNameEnglish', headerName: 'Full Name (English)', width: 160 },
     { field: 'idNumber', headerName: 'ID Number', width: 120 },
     {
       field: 'amount',
       headerName: 'Amount',
-      width: 120,
+      width: 130,
       valueFormatter: (value) => {
         const amount = value ?? 0;
         return `₪${Number(amount).toFixed(2)}`;
@@ -130,13 +130,13 @@ export function TransactionsPage() {
     {
       field: 'type',
       headerName: 'Type',
-      width: 100,
+      width: 120,
     },
-    { field: 'accountNumber', headerName: 'Account', width: 120 },
+    { field: 'accountNumber', headerName: 'Account', width: 130 },
     {
       field: 'status',
       headerName: 'Status',
-      width: 120,
+      width: 110,
       renderCell: (params) => {
         if (!params.value) return null;
         return (
@@ -157,14 +157,13 @@ export function TransactionsPage() {
     {
       field: 'lastAction',
       headerName: 'Last Action',
-      width: 130,
+      width: 120,
       renderCell: (params) => {
         if (!params.value) return null;
         
         const actionColors = {
           'Created': 'info',
           'Updated': 'warning',
-          'Cancelled': 'error',
         };
 
         return (
@@ -179,7 +178,7 @@ export function TransactionsPage() {
     {
       field: 'createdAt',
       headerName: 'Created',
-      width: 170,
+      width: 180,
       valueFormatter: (value) => {
         if (!value) return '';
         try {
@@ -192,7 +191,7 @@ export function TransactionsPage() {
     {
       field: 'updatedAt',
       headerName: 'Updated',
-      width: 170,
+      width: 180,
       valueFormatter: (value) => {
         if (!value) return '-';
         try {
@@ -205,7 +204,7 @@ export function TransactionsPage() {
     {
       field: 'actions',
       headerName: 'Actions',
-      width: 120,
+      width: 100,
       sortable: false,
       filterable: false,
       renderCell: (params) => {
@@ -237,7 +236,7 @@ export function TransactionsPage() {
   ];
 
   return (
-    <Container sx={{ mt: 4, mb: 4 }}>
+    <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
       <Paper elevation={3} sx={{ p: 3 }}>
         <Box
           display="flex"
@@ -253,6 +252,9 @@ export function TransactionsPage() {
             startIcon={<Add />}
             onClick={handleCreateClick}
             size="large"
+            sx={{
+              backgroundColor: '#424242',
+            }}
           >
             Create Transaction
           </Button>
@@ -263,13 +265,13 @@ export function TransactionsPage() {
             <CircularProgress size={60} />
           </Box>
         ) : (
-          <Box sx={{ height: 600, width: '100%' }}>
+          <Box sx={{ width: '100%' }}>
             {transactions.length === 0 ? (
               <Box
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
-                height="100%"
+                py={8}
               >
                 <Typography variant="h6" color="text.secondary">
                   No transactions found
@@ -279,6 +281,7 @@ export function TransactionsPage() {
               <DataGrid
                 rows={transactions}
                 columns={columns}
+                autoHeight
                 initialState={{
                   pagination: {
                     paginationModel: { pageSize: 10 },
@@ -287,6 +290,11 @@ export function TransactionsPage() {
                 pageSizeOptions={[5, 10, 20, 50]}
                 disableRowSelectionOnClick
                 checkboxSelection={false}
+                sx={{
+                  '& .MuiDataGrid-virtualScroller': {
+                    overflow: 'visible',
+                  },
+                }}
               />
             )}
           </Box>

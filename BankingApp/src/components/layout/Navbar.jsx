@@ -6,7 +6,9 @@ export function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{
+        backgroundColor: '#424242',
+      }}>
       <Toolbar>
         <AccountBalance sx={{ mr: 2 }} />
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
