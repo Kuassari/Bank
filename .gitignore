@@ -1,0 +1,26 @@
+# Backend - .NET
+BankingSystem/bin/
+BankingSystem/obj/
+BankingSystem/.vs/
+BankingSystem/*.user
+BankingSystem/*.suo
+BankingSystem/*.mdf
+BankingSystem/*.ldf
+
+# Frontend - React
+BankingApp/node_modules/
+BankingApp/dist/
+BankingApp/build/
+BankingApp/.env
+BankingApp/.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+.vs/
+*.swp
+*.swo

@@ -13,11 +13,11 @@ import {
 } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { Add, Edit, Delete } from '@mui/icons-material';
-import TransactionDialog from '../components/TransactionDialog';
+import { TransactionDialog } from '../components/TransactionDialog';
 import { transactionsApi } from '../services/api';
 import { MESSAGES } from '../constants/messages';
 
-function TransactionsPage() {
+export function TransactionsPage() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -210,7 +210,7 @@ function TransactionsPage() {
       filterable: false,
       renderCell: (params) => {
         const status = params.row?.status;
-        const isCancelled = status === 'Cancelled' 
+        const isCancelled = status === 'Cancelled';
         
         return (
           <Box>
@@ -237,7 +237,7 @@ function TransactionsPage() {
   ];
 
   return (
-    <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+    <Container sx={{ mt: 4, mb: 4 }}>
       <Paper elevation={3} sx={{ p: 3 }}>
         <Box
           display="flex"
@@ -317,5 +317,3 @@ function TransactionsPage() {
     </Container>
   );
 }
-
-export default TransactionsPage;

@@ -25,7 +25,6 @@ const initialFormState = {
     amount: '',
     accountNumber: '',
   },
-  errors: {},
   submitting: false,
 };
 
@@ -35,14 +34,7 @@ const formReducer = (state, action) => {
       return {
         ...state,
         data: { ...state.data, [action.field]: action.value },
-        errors: { ...state.errors, [action.field]: null },
       };
-
-    case 'SET_ERRORS':
-      return { ...state, errors: action.errors };
-
-    case 'CLEAR_ERRORS':
-      return { ...state, errors: {} };
 
     case 'SET_SUBMITTING':
       return { ...state, submitting: action.value };
@@ -54,7 +46,6 @@ const formReducer = (state, action) => {
       return {
         ...state,
         data: action.data,
-        errors: {},
       };
 
     default:
@@ -62,7 +53,7 @@ const formReducer = (state, action) => {
   }
 };
 
-function TransactionDialog({ open, transaction, onClose, onSubmit }) {
+export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
   const isEditMode = !!transaction;
   const [formState, dispatch] = useReducer(formReducer, initialFormState);
 
@@ -87,33 +78,18 @@ function TransactionDialog({ open, transaction, onClose, onSubmit }) {
     }
   }, [open, transaction]);
 
-  // Validate on every change
-  const validationErrors = useMemo(() => {
+  const errors = useMemo(() => {
     return validateTransactionForm(formState.data);
   }, [formState.data]);
 
-  // Disable submit if there are errors
-  const hasErrors = Object.keys(validationErrors).length > 0;
+  const hasErrors = Object.keys(errors).length > 0;
 
   const handleFieldChange = (field, value) => {
     dispatch({ type: 'SET_FIELD', field, value });
   };
 
-  const handleBlur = (field) => {
-    // Show error for this field on blur
-    const fieldError = validationErrors[field];
-    if (fieldError) {
-      dispatch({ 
-        type: 'SET_ERRORS', 
-        errors: { ...formState.errors, [field]: fieldError } 
-      });
-    }
-  };
-
   const handleSubmit = async () => {
-    // Final validation
     if (hasErrors) {
-      dispatch({ type: 'SET_ERRORS', errors: validationErrors });
       return;
     }
 
@@ -162,9 +138,8 @@ function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             label="Full Name (Hebrew)"
             value={formState.data.fullNameHebrew}
             onChange={(e) => handleFieldChange('fullNameHebrew', e.target.value)}
-            onBlur={() => handleBlur('fullNameHebrew')}
-            error={!!formState.errors.fullNameHebrew}
-            helperText={formState.errors.fullNameHebrew}
+            error={!!errors.fullNameHebrew}
+            helperText={errors.fullNameHebrew}
             disabled={isEditMode || formState.submitting}
             inputProps={{ maxLength: 20 }}
           />
@@ -175,9 +150,8 @@ function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             label="Full Name (English)"
             value={formState.data.fullNameEnglish}
             onChange={(e) => handleFieldChange('fullNameEnglish', e.target.value)}
-            onBlur={() => handleBlur('fullNameEnglish')}
-            error={!!formState.errors.fullNameEnglish}
-            helperText={formState.errors.fullNameEnglish}
+            error={!!errors.fullNameEnglish}
+            helperText={errors.fullNameEnglish}
             disabled={isEditMode || formState.submitting}
             inputProps={{ maxLength: 15 }}
           />
@@ -191,9 +165,8 @@ function TransactionDialog({ open, transaction, onClose, onSubmit }) {
               textField: {
                 fullWidth: true,
                 required: true,
-                onBlur: () => handleBlur('birthDate'),
-                error: !!formState.errors.birthDate,
-                helperText: formState.errors.birthDate,
+                error: !!errors.birthDate,
+                helperText: errors.birthDate,
               },
             }}
           />
@@ -204,9 +177,8 @@ function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             label="ID Number"
             value={formState.data.idNumber}
             onChange={(e) => handleFieldChange('idNumber', e.target.value)}
-            onBlur={() => handleBlur('idNumber')}
-            error={!!formState.errors.idNumber}
-            helperText={formState.errors.idNumber}
+            error={!!errors.idNumber}
+            helperText={errors.idNumber}
             disabled={isEditMode || formState.submitting}
             inputProps={{ maxLength: 9 }}
           />
@@ -231,9 +203,8 @@ function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             type="number"
             value={formState.data.amount}
             onChange={(e) => handleFieldChange('amount', e.target.value)}
-            onBlur={() => handleBlur('amount')}
-            error={!!formState.errors.amount}
-            helperText={formState.errors.amount}
+            error={!!errors.amount}
+            helperText={errors.amount}
             disabled={formState.submitting}
             inputProps={{ min: 0.01, max: 9999999999, step: 0.01 }}
           />
@@ -244,9 +215,8 @@ function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             label="Account Number"
             value={formState.data.accountNumber}
             onChange={(e) => handleFieldChange('accountNumber', e.target.value)}
-            onBlur={() => handleBlur('accountNumber')}
-            error={!!formState.errors.accountNumber}
-            helperText={formState.errors.accountNumber}
+            error={!!errors.accountNumber}
+            helperText={errors.accountNumber}
             disabled={formState.submitting}
             inputProps={{ maxLength: 10 }}
           />
@@ -268,5 +238,3 @@ function TransactionDialog({ open, transaction, onClose, onSubmit }) {
     </Dialog>
   );
 }
-
-export default TransactionDialog;

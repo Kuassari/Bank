@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { AccountBalance, Home, Receipt } from '@mui/icons-material';
 
-function Navbar() {
+export function Navbar() {
   const navigate = useNavigate();
 
   return (
@@ -31,6 +31,4 @@ function Navbar() {
       </Toolbar>
     </AppBar>
   );
-}
-
-export default Navbar;
+};
