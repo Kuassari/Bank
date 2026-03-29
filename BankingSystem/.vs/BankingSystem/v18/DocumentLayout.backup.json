@@ -1,0 +1,153 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|c:\\users\\ofir7\\onedrive\\desktop\\kazuar\\bank\\bankingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|c:\\users\\ofir7\\onedrive\\desktop\\kazuar\\bank\\bankingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|c:\\users\\ofir7\\onedrive\\desktop\\kazuar\\bank\\bankingsystem\\services\\iexternalbankservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|solutionrelative:services\\iexternalbankservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|c:\\users\\ofir7\\onedrive\\desktop\\kazuar\\bank\\bankingsystem\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|solutionrelative:models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|c:\\users\\ofir7\\onedrive\\desktop\\kazuar\\bank\\bankingsystem\\models\\createtransactionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|solutionrelative:models\\createtransactionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|c:\\users\\ofir7\\onedrive\\desktop\\kazuar\\bank\\bankingsystem\\models\\baseresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|solutionrelative:models\\baseresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|c:\\users\\ofir7\\onedrive\\desktop\\kazuar\\bank\\bankingsystem\\constants\\responsecodes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|solutionrelative:constants\\responsecodes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|c:\\users\\ofir7\\onedrive\\desktop\\kazuar\\bank\\bankingsystem\\constants\\appconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C05B722-399D-4235-AF88-AB255C2E708B}|BankingSystem.csproj|solutionrelative:constants\\appconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateTransactionRequest.cs",
+              "DocumentMoniker": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Models\\CreateTransactionRequest.cs",
+              "RelativeDocumentMoniker": "Models\\CreateTransactionRequest.cs",
+              "ToolTip": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Models\\CreateTransactionRequest.cs",
+              "RelativeToolTip": "Models\\CreateTransactionRequest.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCQAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T17:01:31.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ResponseCodes.cs",
+              "DocumentMoniker": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Constants\\ResponseCodes.cs",
+              "RelativeDocumentMoniker": "Constants\\ResponseCodes.cs",
+              "ToolTip": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Constants\\ResponseCodes.cs",
+              "RelativeToolTip": "Constants\\ResponseCodes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T17:00:47.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IExternalBankService.cs",
+              "DocumentMoniker": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Services\\IExternalBankService.cs",
+              "RelativeDocumentMoniker": "Services\\IExternalBankService.cs",
+              "ToolTip": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Services\\IExternalBankService.cs",
+              "RelativeToolTip": "Services\\IExternalBankService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T16:22:35.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaseResponse.cs",
+              "DocumentMoniker": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Models\\BaseResponse.cs",
+              "RelativeDocumentMoniker": "Models\\BaseResponse.cs",
+              "ToolTip": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Models\\BaseResponse.cs",
+              "RelativeToolTip": "Models\\BaseResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T12:24:01.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppConstants.cs",
+              "DocumentMoniker": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Constants\\AppConstants.cs",
+              "RelativeDocumentMoniker": "Constants\\AppConstants.cs",
+              "ToolTip": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Constants\\AppConstants.cs",
+              "RelativeToolTip": "Constants\\AppConstants.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T11:01:22.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwA8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-28T22:06:22.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Models\\Transaction.cs",
+              "RelativeDocumentMoniker": "Models\\Transaction.cs",
+              "ToolTip": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Models\\Transaction.cs",
+              "RelativeToolTip": "Models\\Transaction.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAmwA0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T20:46:47.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\ofir7\\OneDrive\\Desktop\\Kazuar\\Bank\\BankingSystem\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAmwCAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T18:54:02.316Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

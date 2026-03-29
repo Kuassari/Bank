@@ -1,0 +1,26 @@
+import { createBrowserRouter } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import HomePage from './pages/HomePage';
+import TransactionsPage from './pages/TransactionsPage';
+import NotFoundPage from './pages/NotFoundPage';
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: 'transactions',
+        element: <TransactionsPage />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
+      },
+    ],
+  },
+]);
