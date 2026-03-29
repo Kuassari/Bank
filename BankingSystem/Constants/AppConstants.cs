@@ -28,7 +28,7 @@
             public const string HebrewNamePattern = @"^[\u0590-\u05FF\s'-]+$";
             public const string EnglishNamePattern = @"^[a-zA-Z\s'-]+$";
             public const string IdNumberPattern = @"^\d{9}$";
-            public const string AccountNumberPattern = @"^\d{1,10}$";
+            public const string AccountNumberPattern = @"^\d{10}$";
         }
     }
 }

@@ -54,11 +54,6 @@ export const transactionsApi = {
     return response.data;
   },
 
-  async getById(id) {
-    const response = await api.get(`/transactions/${id}`);
-    return response.data;
-  },
-
   async create(data) {
     const response = await api.post('/transactions', data);
     return response.data;

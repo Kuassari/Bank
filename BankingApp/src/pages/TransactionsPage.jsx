@@ -226,7 +226,7 @@ export function TransactionsPage() {
               size="small"
               onClick={() => handleCancelClick(params.row?.id)}
               disabled={isCancelled}
-              color="error"
+              color={isCancelled ? 'default' : 'error'}
             >
               <Delete fontSize="small" />
             </IconButton>

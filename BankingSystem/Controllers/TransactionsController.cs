@@ -31,7 +31,6 @@ namespace BankingSystem.Controllers
             try
             {
                 var transactions = await _context.Transactions
-                    .Where(t => !t.IsDeleted)
                     .OrderByDescending(t => t.CreatedAt)
                     .ToListAsync();
 
@@ -62,7 +61,7 @@ namespace BankingSystem.Controllers
             try
             {
                 var transaction = await _context.Transactions
-                    .Where(t => t.Id == id && !t.IsDeleted)
+                    .Where(t => t.Id == id)
                     .FirstOrDefaultAsync();
 
                 if (transaction == null)

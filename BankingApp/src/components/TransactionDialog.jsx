@@ -218,7 +218,9 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
             error={!!errors.accountNumber}
             helperText={errors.accountNumber}
             disabled={formState.submitting}
-            inputProps={{ maxLength: 10 }}
+            slotProps={{
+              htmlInput: { maxLength: 20 }
+            }}
           />
         </Stack>
       </DialogContent>

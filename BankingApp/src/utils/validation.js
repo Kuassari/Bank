@@ -35,8 +35,8 @@ export function validateTransactionForm(fields) {
 
   if (!fields.accountNumber?.trim()) {
     errors.accountNumber = 'Account number is required';
-  } else if (!/^\d{1,10}$/.test(fields.accountNumber)) {
-    errors.accountNumber = 'Account number - up to 10 digits only';
+  } else if (!/^\d{10}$/.test(fields.accountNumber)) {
+    errors.accountNumber = 'Account number must be exactly 10 digits';
   }
 
   return errors;
