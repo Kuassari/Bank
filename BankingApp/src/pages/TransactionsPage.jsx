@@ -68,10 +68,6 @@ export function TransactionsPage() {
   };
 
   const handleCancelClick = async (id) => {
-    if (!window.confirm(MESSAGES.CONFIRM.CANCEL_TRANSACTION)) {
-      return;
-    }
-
     try {
       await transactionsApi.cancel(id);
       showSnackbar(MESSAGES.SUCCESS.TRANSACTION_CANCELLED, 'success');
@@ -85,13 +81,13 @@ export function TransactionsPage() {
     }
   };
 
-  const handleDialogSubmit = async (payload, isEditMode, transactionId) => {
+  const handleDialogSubmit = async (data, isEditMode, transactionId) => {
     try {
       if (isEditMode) {
-        await transactionsApi.update(transactionId, payload);
+        await transactionsApi.update(transactionId, data);
         showSnackbar(MESSAGES.SUCCESS.TRANSACTION_UPDATED, 'success');
       } else {
-        await transactionsApi.create(payload);
+        await transactionsApi.create(data);
         showSnackbar(MESSAGES.SUCCESS.TRANSACTION_CREATED, 'success');
       }
 
@@ -114,9 +110,9 @@ export function TransactionsPage() {
   };
 
   const columns = [
-    { field: 'id', headerName: 'ID', maxWidth: 60, },
-    { field: 'fullNameHebrew', headerName: 'Full Name (Hebrew)', minWidth: 170,},
-    { field: 'fullNameEnglish', headerName: 'Full Name (English)' ,minWidth: 170,},
+    { field: 'id', headerName: 'ID', maxWidth: 60 },
+    { field: 'fullNameHebrew', headerName: 'Full Name (Hebrew)', minWidth: 170 },
+    { field: 'fullNameEnglish', headerName: 'Full Name (English)', minWidth: 170 },
     { field: 'idNumber', headerName: 'ID Number', minWidth: 130 },
     {
       field: 'amount',
@@ -159,10 +155,10 @@ export function TransactionsPage() {
       headerName: 'Last Action',
       width: 120,
       renderCell: (params) => {
-        if (!params.value) return null;       
+        if (!params.value) return null;
         const actionColors = {
-          'Created': 'info',
-          'Updated': 'warning',
+          Created: 'info',
+          Updated: 'warning',
         };
 
         return (
@@ -208,7 +204,7 @@ export function TransactionsPage() {
       filterable: false,
       renderCell: (params) => {
         const status = params.row?.status;
-        const isCancelled = status === 'Cancelled';       
+        const isCancelled = status === 'Cancelled';
         return (
           <Box>
             <IconButton
