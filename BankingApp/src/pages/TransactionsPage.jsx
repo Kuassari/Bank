@@ -159,8 +159,7 @@ export function TransactionsPage() {
       headerName: 'Last Action',
       width: 120,
       renderCell: (params) => {
-        if (!params.value) return null;
-        
+        if (!params.value) return null;       
         const actionColors = {
           'Created': 'info',
           'Updated': 'warning',
@@ -209,8 +208,7 @@ export function TransactionsPage() {
       filterable: false,
       renderCell: (params) => {
         const status = params.row?.status;
-        const isCancelled = status === 'Cancelled';
-        
+        const isCancelled = status === 'Cancelled';       
         return (
           <Box>
             <IconButton

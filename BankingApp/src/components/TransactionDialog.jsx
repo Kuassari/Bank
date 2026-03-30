@@ -26,7 +26,6 @@ const initialFormState = {
     accountNumber: '',
   },
   submitting: false,
-  attemptedSubmit: false,
 };
 
 const formReducer = (state, action) => {
@@ -40,9 +39,6 @@ const formReducer = (state, action) => {
     case 'SET_SUBMITTING':
       return { ...state, submitting: action.value };
 
-    case 'ATTEMPTED_SUBMIT':
-      return { ...state, attemptedSubmit: true };
-
     case 'RESET_FORM':
       return { ...initialFormState };
 
@@ -50,7 +46,6 @@ const formReducer = (state, action) => {
       return {
         ...state,
         data: action.data,
-        attemptedSubmit: false,
       };
 
     default:
@@ -94,8 +89,6 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
   };
 
   const handleSubmit = async () => {
-    dispatch({ type: 'ATTEMPTED_SUBMIT' });
-
     if (hasErrors) {
       return;
     }
@@ -125,10 +118,8 @@ export function TransactionDialog({ open, transaction, onClose, onSubmit }) {
   };
 
   const shouldShowError = (fieldName, fieldValue) => {
-    if (!formState.attemptedSubmit) {
-      const hasValue = fieldValue !== '' && fieldValue !== null && fieldValue !== undefined;
-      if (!hasValue) return false;
-    }
+    const hasValue = fieldValue !== '' && fieldValue !== null && fieldValue !== undefined;
+    if (!hasValue) return false;
     return !!errors[fieldName];
   };
 
