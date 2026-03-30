@@ -60,9 +60,9 @@ export const transactionsApi = {
   },
 
   async update(id, data) {
-    const response = await api.put(`/transactions/${id}`, data);
-    return response.data;
-  },
+  const response = await api.put(`/transactions/${id}`, data);
+  return response.data;
+},
 
   async cancel(id) {
     const response = await api.delete(`/transactions/${id}`);

@@ -101,6 +101,22 @@ namespace BankingSystem.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    var errors = ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage)
+                        .ToList();
+
+                    return BadRequest(new BaseResponse<Transaction>
+                    {
+                        Success = false,
+                        Code = ResponseCode.BadRequest,
+                        Message = string.Join("; ", errors),
+                        Data = null
+                    });
+                }
+
                 var authResponse = await _externalBankService.GetBankAuthorizationAsync(request.IdNumber);
                 if (!authResponse.Success)
                 {
@@ -159,12 +175,28 @@ namespace BankingSystem.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<BaseResponse<Transaction>>> Update(int id, [FromBody] Transaction request)
+        public async Task<ActionResult<BaseResponse<Transaction>>> Update(int id, [FromBody] CreateTransactionRequest request)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    var errors = ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage)
+                        .ToList();
+
+                    return BadRequest(new BaseResponse<Transaction>
+                    {
+                        Success = false,
+                        Code = ResponseCode.BadRequest,
+                        Message = string.Join("; ", errors),
+                        Data = null
+                    });
+                }
+
                 var transaction = await _context.Transactions
-                    .Where(t => t.Id == id && !t.IsDeleted)
+                    .Where(t => t.Id == id)
                     .FirstOrDefaultAsync();
 
                 if (transaction == null)
@@ -228,7 +260,7 @@ namespace BankingSystem.Controllers
             try
             {
                 var transaction = await _context.Transactions
-                    .Where(t => t.Id == id && !t.IsDeleted)
+                    .Where(t => t.Id == id)
                     .FirstOrDefaultAsync();
 
                 if (transaction == null)
